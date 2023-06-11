@@ -6,7 +6,7 @@ on:
       - master
       
   schedule:
-    - cron: '5 12 * * *' # Run at 7 AM, 9 AM, and 11 AM on Mondays and Wednesdays
+    - cron: '* * * * *' # Run at 7 AM, 9 AM, and 11 AM on Mondays and Wednesdays
 
 jobs:
   auto_commit:
