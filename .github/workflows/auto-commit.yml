@@ -2,7 +2,7 @@ name: Auto Commit
 
 on:
   schedule:
-    - cron: '30 11 * * *' # Runs every day at midnight UTC
+    - cron: '35 11 * * *' # Runs every day at midnight UTC
 
 jobs:
   commit:
@@ -14,8 +14,8 @@ jobs:
 
       - name: Set Git Config
         run: |
-          git config --global user.name "Your Name"
-          git config --global user.email "youremail@example.com"
+          git config --global user.name "Vann-Dev"
+          git config --global user.email "stevanvincent05@gmail.com"
 
       - name: Create Commit
         run: |
