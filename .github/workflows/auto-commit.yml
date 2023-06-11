@@ -2,7 +2,7 @@ name: Auto Commit
 
 on:
   schedule:
-    - cron: '35 11 * * *' # Runs every day at midnight UTC
+    - cron: '35 11 * * *'
 
 jobs:
   commit:
