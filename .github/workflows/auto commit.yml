@@ -1,0 +1,25 @@
+name: Auto Commit
+
+on:
+  schedule:
+    - cron: '30 11 * * *' # Runs every day at midnight UTC
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Git Config
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "youremail@example.com"
+
+      - name: Create Commit
+        run: |
+          echo "Auto commit" > commit.txt
+          git add commit.txt
+          git commit -m "Auto commit"
+          git push
