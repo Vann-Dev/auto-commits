@@ -1,54 +1,30 @@
-name: Auto commit
+name: Auto Commit
 
 on:
-  push:
-    branches:
-      - master
-      
   schedule:
-    - cron: '* * * * *' # Run at 7 AM, 9 AM, and 11 AM on Mondays and Wednesdays
+    - cron: '16 12 * * *'
 
 jobs:
-  auto_commit:
+  commit:
     runs-on: ubuntu-latest
-    steps:
-      - name: DEBUG 
-        run: echo "::debug::Ref = ${{ github.ref }}"
-      - uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-          fetch-depth: 0
 
-      - name: Modify last update
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Git Config
         run: |
-          d=$(date '+%Y-%m-%dT%H:%M:%SZ')
-          echo $d > LAST_UPDATED
-          
-      - name: Commit changes
+          git config --global user.name "Vann-Dev"
+          git config --global user.email "stevanvincent05@gmail.com"
+
+      - name: Create Commit
         run: |
-          git config --local user.email "stevanvincent05@gmail.com"
-          git config --local user.name "Vann-Dev"
-          git add -A
-          
-          commit_messages=(
-            "chore(bot): 😂 auto commit"
-            "chore(bot): 😱 auto commit"
-            "chore(bot): 👿 auto commit"
-            "chore(bot): 💩 auto commit"
-            "chore(bot): 🙏 auto commit"
-            "chore(bot): 🙈 auto commit"
-            "chore(bot): 🐐 auto commit"
-            "chore(bot): 🤖 auto commit"
-            "chore(bot): 🟩 auto commit"
-            "chore(bot): 👻 auto commit"
-          )
-          
-          rand=$((RANDOM % ${#commit_messages[@]}))
-          
-          git commit -m "${commit_messages[$rand]}"
-          
-      - name: GitHub Push
+          echo "Auto commit" > commit.txt
+          git add commit.txt
+          git commit -m "Auto commit"
+          git push origin HEAD:main
+
+      - name: Push Changes
         uses: ad-m/github-push-action@v0.6.0
         with:
-          directory: "."
           github_token: ${{ secrets.TOKEN }}
