@@ -6,7 +6,7 @@ on:
       - main
       
   schedule:
-  - cron: "3 6 * * *" # See https://crontab.guru/#0_7,9,11_*_*_1,3
+  - cron: "12 6 * * *" # See https://crontab.guru/#0_7,9,11_*_*_1,3
 
 jobs:
   commit:
