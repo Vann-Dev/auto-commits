@@ -50,3 +50,4 @@ jobs:
         with:
           directory: "."
           github_token: ${{ secrets.TOKEN }}
+          branch: main
