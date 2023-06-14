@@ -1,6 +1,8 @@
 name: Auto Commit
 
 on:   
+  push:
+    branches: main
   schedule:
   - cron: "15 6 * * *" # See https://crontab.guru/#0_7,9,11_*_*_1,3
 
