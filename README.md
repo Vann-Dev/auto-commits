@@ -22,6 +22,7 @@ ___
 ---
 
 **NOTE: YOU CAN ALSO CHANGE INTERVAL TIME ON THIS SECTION**
+
 https://github.com/Vann-Dev/auto-commits/blob/main/.github/workflows/commit.yml#L5
 
 https://crontab.guru
