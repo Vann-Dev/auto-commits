@@ -3,6 +3,9 @@ name: Auto Commit
 on:   
   schedule:
   - cron: "*/120 * * * *" # https://crontab.guru/#*/30_*_*_*_*
+
+permissions:                
+    contents: write
   
 jobs:
   auto_commit:
